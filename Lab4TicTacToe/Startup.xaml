@@ -10,7 +10,7 @@
         <Label Content="Choose X or O to continue" Margin="294,48,294,327" FontSize="16"></Label>
         <Image x:Name="image1" Source="/Images/tic-tac-toe_o.png" Margin="449,128,101,89" MouseDown="Image_MouseDown" />
         <Image x:Name="image2" Source="/Images/tic-tac-toe_x.png" Margin="81,128,465,89" MouseDown="Image_MouseDown" />
-        <Button Content="Button" HorizontalAlignment="Left" Margin="170,78,0,0" VerticalAlignment="Top"/>
+        <Button Content="Change O to X" HorizontalAlignment="Center" Margin="0,151,0,0" VerticalAlignment="Top" Click="Button_Click"/>
 
 
     </Grid>
