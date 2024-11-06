@@ -8,6 +8,19 @@ namespace Lab4TicTacToe
 {
     internal class Board
     {
-        private enum  
+        PlayerEnum[,] board = new PlayerEnum[3, 3];
+
+        public Board()
+        {
+            for (int x = 0; x < 3; x++)
+                for (int y = 0; y < 3; y++)
+                {
+                    board[x,y] = PlayerEnum.NONE;
+                }
+            {
+
+            }
+
+        }
     }
 }
