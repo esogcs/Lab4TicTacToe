@@ -24,7 +24,5 @@ namespace Lab4TicTacToe
         {
             InitializeComponent();
         }
-
-
     }
 }

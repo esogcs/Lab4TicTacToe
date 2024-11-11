@@ -27,9 +27,5 @@
         <Image Source="/Images/blank.png" x:Name="Blank8" Grid.ColumnSpan="2" Margin="266,144,0,0" Grid.RowSpan="2" Grid.Row="1"/>
         <Image Source="/Images/blank.png" x:Name="Blank9" Grid.ColumnSpan="2" Margin="266,144,1,0" Grid.RowSpan="2" Grid.Row="1" Grid.Column="1" />
         <Image Source="/Images/blank.png" Grid.ColumnSpan="2" Margin="0,144,266,0" Grid.RowSpan="2" Grid.Row="1" />
-        <Image Source="/Images/Grid.png" Grid.ColumnSpan="3" Margin="250,62,251,33" Grid.RowSpan="3" />
-
-
-
     </Grid>
 </Window>
