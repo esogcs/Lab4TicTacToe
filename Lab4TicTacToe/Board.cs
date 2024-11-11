@@ -25,5 +25,17 @@ namespace Lab4TicTacToe
             }
 
         }
+
+        public void Select()
+        {
+
+        }
+
+        
+        public String CheckWin()
+        {
+
+
+        }
     }
 }
