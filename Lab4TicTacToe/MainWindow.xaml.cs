@@ -24,5 +24,10 @@ namespace Lab4TicTacToe
         {
             InitializeComponent();
         }
+
+        public void Select(object sender, MouseButtonEventArgs e)
+        {
+            Board.Select(sender, e);
+        }
     }
 }
