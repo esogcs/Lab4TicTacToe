@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace Lab4TicTacToe
 {
@@ -29,33 +30,26 @@ namespace Lab4TicTacToe
 
         }
 
-        public void Select()
+        public void Select(object sender, MouseButtonEventArgs e)
         {
-            // Make image one turn into image two on mouse click
-            private void Image_MouseDown(object sender, MouseButtonEventArgs e)
+            Image currentImage = (Image)sender;
+            if (currentImage.Name == "Blank1" || currentImage.Name == "Blank2" || currentImage.Name == "Blank3" || currentImage.Name == "Blank4" || currentImage.Name == "Blank1" || currentImage.Name == "Blank5" || currentImage.Name == "Blank6" || currentImage.Name == "Blank7" || currentImage.Name == "Blank8" || currentImage.Name == "Blank9")
             {
-                Image currentImage = (Image)sender;
-
-                currentImage.Source = new BitmapImage(new Uri("two.jpg", UriKind.Relative));
+                if (currentPlayer == PlayerEnum.X)
+                {
+                    currentImage.Source = new BitmapImage(new Uri("tic-tac-toe_x.png", UriKind.Relative));
+                }
+                else
+                {
+                    currentImage.Source = new BitmapImage(new Uri("tic-tac-toe_o.png", UriKind.Relative));
+                }
             }
-
-            private void sp1_Loaded(object sender, RoutedEventArgs e)
-            {
-                Label lbl1 = new Label();
-                lbl1.Content = "AAAA";
-                sp1.Children.Add(lbl1);
-                Label lbl2 = new Label();
-                lbl2.Content = "BBBB";
-                sp1.Children.Add(lbl2);
-
-            }
-
         }
 
         
         public String CheckWin()
         {
-
+            return "You win";
 
         }
     }
