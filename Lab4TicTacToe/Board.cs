@@ -37,11 +37,11 @@ namespace Lab4TicTacToe
             {
                 if (currentPlayer == PlayerEnum.X)
                 {
-                    currentImage.Source = new BitmapImage(new Uri("tic-tac-toe_x.png", UriKind.Relative));
+                    currentImage.Source = new BitmapImage(new Uri("/Images/tic-tac-toe_x.png", UriKind.Relative));
                 }
                 else
                 {
-                    currentImage.Source = new BitmapImage(new Uri("tic-tac-toe_o.png", UriKind.Relative));
+                    currentImage.Source = new BitmapImage(new Uri("/Images/tic-tac-toe_o.png", UriKind.Relative));
                 }
             }
         }
