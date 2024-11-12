@@ -7,36 +7,44 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="50"></RowDefinition> 
+            <RowDefinition Height="Auto"></RowDefinition>
+            <!--Last row for the notif stack panel-->
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        
+
         <!-- Grid image bg-->
         <Image Source="/Images/Grid.png" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Grid.ColumnSpan="3" Stretch="Fill" />
-        
+
         <!-- Row 1-->
-        <Image x:Name="Blank1" Source="/Images/blank.png" Grid.Row="0" Grid.Column="0" MouseDown="Select" Margin="10"/>
-        <Image x:Name="Blank2" Source="/Images/blank.png" Grid.Row="0" Grid.Column="1" MouseDown="Select" Margin="10"/>
-        <Image x:Name="Blank3" Source="/Images/blank.png" Grid.Row="0" Grid.Column="2" MouseDown="Select" Margin="10"/>
+        <Image x:Name="Blank1" Source="/Images/blank.png" Grid.Row="0" Grid.Column="0" MouseDown="Select" Margin="0,5,5,10"/>
+        <Image x:Name="Blank2" Source="/Images/blank.png" Grid.Row="0" Grid.Column="1" MouseDown="Select" Margin="0,5,5,10"/>
+        <Image x:Name="Blank3" Source="/Images/blank.png" Grid.Row="0" Grid.Column="2" MouseDown="Select" Margin="0,5,5,10"/>
 
         <!-- Row 2-->
-        <Image x:Name="Blank4" Source="/Images/blank.png" Grid.Row="1" Grid.Column="0" MouseDown="Select" Margin="10"/>
-        <Image x:Name="Blank5" Source="/Images/blank.png" Grid.Row="1" Grid.Column="1" MouseDown="Select" Margin="10"/>
-        <Image x:Name="Blank6" Source="/Images/blank.png" Grid.Row="1" Grid.Column="2" MouseDown="Select" Margin="10"/>
+        <Image x:Name="Blank4" Source="/Images/blank.png" Grid.Row="1" Grid.Column="0" MouseDown="Select" Margin="0,10,5,10"/>
+        <Image x:Name="Blank5" Source="/Images/blank.png" Grid.Row="1" Grid.Column="1" MouseDown="Select" Margin="0,10,5,10"/>
+        <Image x:Name="Blank6" Source="/Images/blank.png" Grid.Row="1" Grid.Column="2" MouseDown="Select" Margin="0,10,5,10"/>
 
         <!-- Row 3-->
-        <Image x:Name="Blank7" Source="/Images/blank.png" Grid.Row="2" Grid.Column="0" MouseDown="Select" Margin="10"/>
-        <Image x:Name="Blank8" Source="/Images/blank.png" Grid.Row="2" Grid.Column="1" MouseDown="Select" Margin="10"/>
-        <Image x:Name="Blank9" Source="/Images/blank.png" Grid.Row="2" Grid.Column="2" MouseDown="Select" Margin="10"/>
+        <Image x:Name="Blank7" Source="/Images/blank.png" Grid.Row="2" Grid.Column="0" MouseDown="Select" Margin="0,10,5,10"/>
+        <Image x:Name="Blank8" Source="/Images/blank.png" Grid.Row="2" Grid.Column="1" MouseDown="Select" Margin="0,10,5,10"/>
+        <Image x:Name="Blank9" Source="/Images/blank.png" Grid.Row="2" Grid.Column="2" MouseDown="Select" Margin="0,10,5,10"/>
+
+        <!-- notif area stack panel -->
+        <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label x:Name="GamesPlayedLabel" Content="Games Played: x Games Won: y" FontSize="14"/>
+            <Label x:Name="WinRatioLabel" Content="Win Ratio: x%" FontSize="14" HorizontalAlignment="Center"/>
+            <Label x:Name="TurnLabel" Content="Turn: Player X" FontSize="14" HorizontalAlignment="Center"/>
+        </StackPanel>
     </Grid>
 
 </Window>

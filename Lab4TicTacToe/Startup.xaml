@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Lab4TicTacToe"
         mc:Ignorable="d"
         Title="Startup" Height="450" Width="800">
-    
+
     <Grid>
         <!--Title + Choose labels-->
         <Label x:Name="Choose_lbl" 
@@ -15,18 +15,18 @@
                VerticalAlignment="Top" 
                FontSize="16" 
                Margin="0,45,0,0">
-            
+
         </Label>
-        
+
         <Label x:Name="Title_lbl" 
                Content="Lab4 Tic-Tac-Toe game" 
                HorizontalAlignment="Center" 
                FontSize="20" 
                FontWeight="Bold" 
                Margin="0,10,0,-10">
-            
+
         </Label>
-        
+
         <!--'O' + 'X' images-->
         <Image x:Name="Img_O"  
                Source="/Images/tic-tac-toe_o.png" 
@@ -35,7 +35,7 @@
                Width="100" 
                VerticalAlignment="Top" 
                MouseDown="Choose_Start">
-            
+
         </Image>
         <Image x:Name="Img_X"  
                Source="/Images/tic-tac-toe_x.png" 
@@ -45,9 +45,9 @@
                Width="100" 
                VerticalAlignment="Top" 
                MouseDown="Choose_Start">
-            
+
         </Image>
-        
+
         <!--Change button-->
         <Button x:Name="Change_btn" 
                 Content="Change O to X" 
@@ -55,6 +55,6 @@
                 Margin="0,250,0,0" 
                 VerticalAlignment="Top" 
                 Click="Button_Click"/>
-        
+
     </Grid>
 </Window>

@@ -25,7 +25,7 @@ namespace Lab4TicTacToe
             InitializeComponent();
         }
 
-        
+
         private void Choose_Start(object sender, MouseButtonEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();
@@ -33,7 +33,7 @@ namespace Lab4TicTacToe
             this.Close();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e) 
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
             Img_X.Source = new BitmapImage(new Uri("Images/tic-tac-toe_o.png", UriKind.Relative));
         }
