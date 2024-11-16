@@ -29,6 +29,19 @@ namespace Lab4TicTacToe
 
         }
 
+        public static void changePlayer(PlayerEnum currentPlayer)
+        {
+            if (currentPlayer == PlayerEnum.X)
+            {
+                currentPlayer = PlayerEnum.O;
+            }
+
+            else
+            {
+                currentPlayer = PlayerEnum.X;
+            }
+        }
+
         public static void Select(object sender, MouseButtonEventArgs e)
         {
             PlayerEnum currentPlayer = PlayerEnum.X;
@@ -38,10 +51,12 @@ namespace Lab4TicTacToe
                 if (currentPlayer == PlayerEnum.X)
                 {
                     currentImage.Source = new BitmapImage(new Uri("/Images/tic-tac-toe_x.png", UriKind.Relative));
+                    changePlayer(currentPlayer);
                 }
                 else
                 {
                     currentImage.Source = new BitmapImage(new Uri("/Images/tic-tac-toe_o.png", UriKind.Relative));
+                    changePlayer(currentPlayer);
                 }
             }
         }
