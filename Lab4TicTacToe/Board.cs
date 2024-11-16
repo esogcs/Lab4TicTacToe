@@ -46,7 +46,7 @@ namespace Lab4TicTacToe
         public static void Select(object sender, MouseButtonEventArgs e)
         {
             Image currentImage = (Image)sender;
-            if (currentImage.Name == "Blank1" || currentImage.Name == "Blank2" || currentImage.Name == "Blank3" || currentImage.Name == "Blank4" || currentImage.Name == "Blank1" || currentImage.Name == "Blank5" || currentImage.Name == "Blank6" || currentImage.Name == "Blank7" || currentImage.Name == "Blank8" || currentImage.Name == "Blank9")
+            if (currentImage.Name == "Blank1" || currentImage.Name == "Blank2" || currentImage.Name == "Blank3" || currentImage.Name == "Blank4" || currentImage.Name == "Blank5" || currentImage.Name == "Blank6" || currentImage.Name == "Blank7" || currentImage.Name == "Blank8" || currentImage.Name == "Blank9")
             {
                 if (currentPlayer == PlayerEnum.X)
                 {
@@ -62,9 +62,13 @@ namespace Lab4TicTacToe
         }
 
         
-        public String CheckWin()
+        public void CheckWin()
         {
-            return "You win";
+
+            if (true)
+            {
+                
+            }
 
         }
     }
