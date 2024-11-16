@@ -14,7 +14,8 @@ namespace Lab4TicTacToe
     {
         PlayerEnum[,] board = new PlayerEnum[3, 3];
         int x_score_cumulative = 0;
-        int y_score_cumulative = 0; 
+        int y_score_cumulative = 0;
+        static PlayerEnum currentPlayer = PlayerEnum.X;
 
         public Board()
         {
@@ -29,7 +30,7 @@ namespace Lab4TicTacToe
 
         }
 
-        public static void changePlayer(PlayerEnum currentPlayer)
+        public static void changePlayer()
         {
             if (currentPlayer == PlayerEnum.X)
             {
@@ -44,19 +45,18 @@ namespace Lab4TicTacToe
 
         public static void Select(object sender, MouseButtonEventArgs e)
         {
-            PlayerEnum currentPlayer = PlayerEnum.X;
             Image currentImage = (Image)sender;
             if (currentImage.Name == "Blank1" || currentImage.Name == "Blank2" || currentImage.Name == "Blank3" || currentImage.Name == "Blank4" || currentImage.Name == "Blank1" || currentImage.Name == "Blank5" || currentImage.Name == "Blank6" || currentImage.Name == "Blank7" || currentImage.Name == "Blank8" || currentImage.Name == "Blank9")
             {
                 if (currentPlayer == PlayerEnum.X)
                 {
                     currentImage.Source = new BitmapImage(new Uri("/Images/tic-tac-toe_x.png", UriKind.Relative));
-                    changePlayer(currentPlayer);
+                    changePlayer();
                 }
                 else
                 {
                     currentImage.Source = new BitmapImage(new Uri("/Images/tic-tac-toe_o.png", UriKind.Relative));
-                    changePlayer(currentPlayer);
+                    changePlayer();
                 }
             }
         }
