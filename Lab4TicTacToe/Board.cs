@@ -12,7 +12,7 @@ namespace Lab4TicTacToe
 {
     internal class Board
     {
-        PlayerEnum[,] board = new PlayerEnum[3, 3];
+        PlayerEnum[,] board = new PlayerEnum[2, 2];
         int x_score_cumulative = 0;
         int y_score_cumulative = 0;
         static PlayerEnum currentPlayer = PlayerEnum.X;
@@ -20,12 +20,11 @@ namespace Lab4TicTacToe
         public Board()
         {
             for (int x = 0; x < 3; x++)
+            {
                 for (int y = 0; y < 3; y++)
                 {
                     board[x,y] = PlayerEnum.NONE;
                 }
-            {
-
             }
 
         }
@@ -48,6 +47,7 @@ namespace Lab4TicTacToe
             Image currentImage = (Image)sender;
             if (currentImage.Name == "Blank1" || currentImage.Name == "Blank2" || currentImage.Name == "Blank3" || currentImage.Name == "Blank4" || currentImage.Name == "Blank5" || currentImage.Name == "Blank6" || currentImage.Name == "Blank7" || currentImage.Name == "Blank8" || currentImage.Name == "Blank9")
             {
+                
                 if (currentPlayer == PlayerEnum.X)
                 {
                     currentImage.Source = new BitmapImage(new Uri("/Images/tic-tac-toe_x.png", UriKind.Relative));
