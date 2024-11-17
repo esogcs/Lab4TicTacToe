@@ -7,12 +7,13 @@ using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Documents;
 
 namespace Lab4TicTacToe
 {
     internal class Board
     {
-        PlayerEnum[,] board = new PlayerEnum[2, 2];
+        static PlayerEnum[,] board = new PlayerEnum[2, 2];
         int x_score_cumulative = 0;
         int y_score_cumulative = 0;
         static PlayerEnum currentPlayer = PlayerEnum.X;
@@ -42,6 +43,11 @@ namespace Lab4TicTacToe
             }
         }
 
+        public void makeMove(int x, int y)
+        {
+            board[x, y] = currentPlayer;
+        }
+
         public static void Select(object sender, MouseButtonEventArgs e)
         {
             Image currentImage = (Image)sender;
@@ -51,6 +57,7 @@ namespace Lab4TicTacToe
                 if (currentPlayer == PlayerEnum.X)
                 {
                     currentImage.Source = new BitmapImage(new Uri("/Images/tic-tac-toe_x.png", UriKind.Relative));
+                    
                     changePlayer();
                 }
                 else
@@ -61,13 +68,24 @@ namespace Lab4TicTacToe
             }
         }
 
-        
-        public void CheckWin()
+        public String CheckDraw(int x, int y)
+        {
+            if (true)
+            {
+                return "The game is a draw";
+            }
+        }
+
+        public String CheckWin(int x, int y)
         {
 
             if (true)
             {
-                
+                return "Player X wins.";
+            }
+            else
+            {
+                return "Player Y wins.";
             }
 
         }
