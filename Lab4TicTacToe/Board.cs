@@ -85,7 +85,7 @@ namespace Lab4TicTacToe
             }
             else
             {
-                return "Player Y wins.";
+                return "Player O wins.";
             }
 
         }
