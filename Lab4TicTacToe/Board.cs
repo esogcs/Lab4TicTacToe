@@ -43,9 +43,32 @@ namespace Lab4TicTacToe
             }
         }
 
-        public void makeMove(int x, int y)
+        public static void makeMove(int x, int y)
         {
             board[x, y] = currentPlayer;
+        }
+
+        public static void settingLocation(int i)
+        {
+            int x;
+            int y;
+            if (i >= 0 && i < 3)
+            {
+                x = i;
+                y = 0;
+            }
+            else if (i >= 3 && i < 6)
+            {
+                x = i - 3;
+                y = 1;
+            }
+            else
+            {
+                x = i - 6; 
+                y = 2;
+            }
+
+            makeMove(x, y);
         }
 
         public static void Select(object sender, MouseButtonEventArgs e)
@@ -57,7 +80,7 @@ namespace Lab4TicTacToe
                 if (currentPlayer == PlayerEnum.X)
                 {
                     currentImage.Source = new BitmapImage(new Uri("/Images/tic-tac-toe_x.png", UriKind.Relative));
-                    
+                    settingLocation(int.Parse((string)currentImage.Tag));
                     changePlayer();
                 }
                 else
