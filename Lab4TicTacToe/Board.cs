@@ -13,7 +13,7 @@ namespace Lab4TicTacToe
 {
     internal class Board
     {
-        static PlayerEnum[,] board = new PlayerEnum[2, 2];
+        static PlayerEnum[,] board = new PlayerEnum[3, 3];
         int x_score_cumulative = 0;
         int y_score_cumulative = 0;
         static PlayerEnum currentPlayer = PlayerEnum.X;
