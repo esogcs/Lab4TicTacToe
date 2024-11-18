@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
 
 namespace Lab4TicTacToe
 {
@@ -25,10 +20,9 @@ namespace Lab4TicTacToe
             {
                 for (int y = 0; y < 3; y++)
                 {
-                    board[x,y] = PlayerEnum.NONE;
+                    board[x, y] = PlayerEnum.NONE;
                 }
             }
-
         }
 
         public static void changePlayer()
@@ -37,7 +31,6 @@ namespace Lab4TicTacToe
             {
                 currentPlayer = PlayerEnum.O;
             }
-
             else
             {
                 currentPlayer = PlayerEnum.X;
@@ -47,6 +40,11 @@ namespace Lab4TicTacToe
         public static void makeMove(int x, int y)
         {
             board[x, y] = currentPlayer;
+        }
+
+        public static bool CheckMove(int x, int y)
+        {
+            return board[x, y] == PlayerEnum.NONE;
         }
 
         public static void settingLocation(int i)
@@ -65,36 +63,71 @@ namespace Lab4TicTacToe
             }
             else
             {
-                y = i - 6; 
+                y = i - 6;
                 x = 2;
             }
 
-            makeMove(x, y);
-            CheckDraw(x, y);
+            if (CheckMove(x, y))
+            {
+                makeMove(x, y);
+                string result = CheckDraw(x, y);
+                if (result != "The game is not over.")
+                {
+                    MessageBox.Show(result);
+                    ResetBoard();
+                }
+                else
+                {
+                    changePlayer();
+                }
+
+                turnsSinceStart++;
+            }
         }
 
         public static void Select(object sender, MouseButtonEventArgs e)
         {
             Image currentImage = (Image)sender;
-            if (currentImage.Name == "Blank1" || currentImage.Name == "Blank2" || currentImage.Name == "Blank3" || currentImage.Name == "Blank4" || currentImage.Name == "Blank5" || currentImage.Name == "Blank6" || currentImage.Name == "Blank7" || currentImage.Name == "Blank8" || currentImage.Name == "Blank9")
+            if (currentImage.Name == "Blank1" || currentImage.Name == "Blank2" || currentImage.Name == "Blank3" ||
+                currentImage.Name == "Blank4" || currentImage.Name == "Blank5" || currentImage.Name == "Blank6" ||
+                currentImage.Name == "Blank7" || currentImage.Name == "Blank8" || currentImage.Name == "Blank9")
             {
-                
-                if (currentPlayer == PlayerEnum.X)
+                int index = int.Parse((string)currentImage.Tag);
+                int x = index / 3;
+                int y = index % 3;
+
+                if (CheckMove(x, y))
                 {
-                    currentImage.Source = new BitmapImage(new Uri("/Images/tic-tac-toe_x.png", UriKind.Relative));
-                    settingLocation(int.Parse((string)currentImage.Tag));
-                    changePlayer();
+                    if (currentPlayer == PlayerEnum.X)
+                    {
+                        currentImage.Source =
+                            new BitmapImage(new Uri("/Images/tic-tac-toe_x.png", UriKind.Relative));
+                    }
+                    else
+                    {
+                        currentImage.Source =
+                            new BitmapImage(new Uri("/Images/tic-tac-toe_o.png", UriKind.Relative));
+                    }
+
+                    settingLocation(index);
                 }
-                else
-                {
-                    currentImage.Source = new BitmapImage(new Uri("/Images/tic-tac-toe_o.png", UriKind.Relative));
-                    changePlayer();
-                }
-                turnsSinceStart++;
             }
         }
 
-        public static String CheckDraw(int x, int y)
+        public static void ResetBoard()
+        {
+            for (int x = 0; x < 3; x++)
+            {
+                for (int y = 0; y < 3; y++)
+                {
+                    board[x, y] = PlayerEnum.NONE;
+                }
+            }
+            currentPlayer = PlayerEnum.X;
+            turnsSinceStart = 0;
+        }
+
+        public static string CheckDraw(int x, int y)
         {
             if (turnsSinceStart == 9)
             {
@@ -155,7 +188,7 @@ namespace Lab4TicTacToe
             {
                 for (int y = 0; y < 3; y++)
                 {
-                    if (x-y == 0 && board[x, y] == currentPlayer)
+                    if (x - y == 0 && board[x, y] == currentPlayer)
                     {
                         count++;
                     }
@@ -198,19 +231,20 @@ namespace Lab4TicTacToe
 
         public static String CheckWin(int x, int y)
         {
-
-            if ((CheckColumn(x, y) || CheckRow(x,y) || CheckDiagonal() || CheckOppDiagonal()) && currentPlayer == PlayerEnum.X)
+            if ((CheckColumn(x, y) || CheckRow(x, y) || CheckDiagonal() || CheckOppDiagonal()) &&
+                currentPlayer == PlayerEnum.X)
             {
                 return "Player X wins.";
             }
-            else if ((CheckColumn(x, y) || CheckRow(x, y) || CheckDiagonal() || CheckOppDiagonal()) && currentPlayer == PlayerEnum.O) {
+            else if ((CheckColumn(x, y) || CheckRow(x, y) || CheckDiagonal() || CheckOppDiagonal()) &&
+                     currentPlayer == PlayerEnum.O)
+            {
                 return "Player O wins.";
             }
             else
             {
                 return "The game is not over.";
             }
-
         }
     }
 }
