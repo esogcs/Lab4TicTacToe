@@ -74,7 +74,7 @@ namespace Lab4TicTacToe
                 if (result != "The game is not over.")
                 {
                     MessageBox.Show(result);
-                    ResetBoard();
+
                 }
                 else
                 {
@@ -114,20 +114,7 @@ namespace Lab4TicTacToe
             }
         }
 
-        public static void ResetBoard()
-        {
-            for (int x = 0; x < 3; x++)
-            {
-                for (int y = 0; y < 3; y++)
-                {
-                    board[x, y] = PlayerEnum.NONE;
-                }
-            }
-            currentPlayer = PlayerEnum.X;
-            turnsSinceStart = 0;
-        }
-
-        public static string CheckDraw(int x, int y)
+        public static String CheckDraw(int x, int y)
         {
             if (turnsSinceStart == 9)
             {
